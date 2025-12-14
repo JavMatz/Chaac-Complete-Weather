@@ -3,9 +3,11 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.11
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami 2.4 as Kirigami
 
-Item {
+Kirigami.FormLayout {
     id: configRoot
+    wideMode: true
 
     QtObject {
         id: unidWeatherValue
