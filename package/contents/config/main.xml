@@ -18,12 +18,6 @@
      <entry name="temperatureUnit" type="int">
 		<default>0</default>
 	</entry>
-     <entry name="sizeFontConfig" type="int">
-		<default>11</default>
-	</entry>
-    <entry name="boldfonts" type="bool">
-		<default>false</default>
-	</entry>
   </group>
 
 </kcfg>

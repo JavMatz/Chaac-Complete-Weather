@@ -18,7 +18,6 @@ Item {
     property string undefanchors: activeweathershottext ? undefined : parent.verticalCenter
     property bool textweather: Plasmoid.configuration.textweather
     property bool activeweathershottext: heightH > 36
-    property int fonssizes: Plasmoid.configuration.sizeFontConfig
     property int heightH: root.height
     property var widthWidget: activeweathershottext ? temOfCo.implicitWidth : temOfCo.implicitWidth + wrapper_weathertext.width
     property var widthReal: isVertical ? root.width : initial.implicitWidth
@@ -66,8 +65,6 @@ Item {
                     id: textGrados
                     height: parent.height
                     text: weatherData.temperaturaActual
-                    font.bold: boldfonts
-                    font.pixelSize: fonssizes
                     color: PlasmaCore.Theme.textColor
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -75,8 +72,6 @@ Item {
                     id: subtextGrados
                     height: parent.height
                     text: (root.temperatureUnit === "0") ? " °C" : " °F"
-                    font.bold: boldfonts
-                    font.pixelSize: fonssizes
                     color: PlasmaCore.Theme.textColor
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -89,7 +84,6 @@ Item {
                 Label {
                     id: shortweathertext
                     text: weatherData.weatherShottext
-                    font.pixelSize: fonssizes
                     font.bold: true
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -121,8 +115,6 @@ Item {
                 id: textGrados_vertical
                 height: parent.height
                 text: weatherData.temperaturaActual
-                font.bold: boldfonts
-                font.pixelSize: fonssizes
                 color: PlasmaCore.Theme.textColor
                 horizontalAlignment: Text.AlignHCenter
             }
@@ -130,8 +122,6 @@ Item {
                 id: subtextGrados_vertical
                 height: parent.height
                 text: (root.temperatureUnit === "0") ? " °C" : " °F"
-                font.bold: boldfonts
-                font.pixelSize: fonssizes
                 color: PlasmaCore.Theme.textColor
                 horizontalAlignment: Text.AlignHCenter
             }
