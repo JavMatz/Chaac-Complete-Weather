@@ -19,7 +19,7 @@ Kirigami.FormLayout {
     property alias cfg_temperatureUnit: unidWeatherValue.value
     property alias cfg_latitudeC: latitude.text
     property alias cfg_longitudeC: longitude.text
-    property alias cfg_useCoordinatesIp: autamateCoorde.checked
+    property alias cfg_useAutomaticLocation: autamateCoorde.checked
     property alias cfg_textweather: textweather.checked
 
     ColumnLayout {

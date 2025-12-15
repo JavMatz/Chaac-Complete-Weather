@@ -22,13 +22,13 @@ Item {
     }
   }
 
-  property string useCoordinatesIp: plasmoid.configuration.useCoordinatesIp
+  property string useAutomaticLocation: plasmoid.configuration.useAutomaticLocation
   property string latitudeC: plasmoid.configuration.latitudeC
   property string longitudeC: plasmoid.configuration.longitudeC
   property string temperatureUnit: plasmoid.configuration.temperatureUnit
 
-  property string latitude: (useCoordinatesIp === "true") ? latitudeIP : (latitudeC === "0") ? latitudeIP : latitudeC
-  property string longitud: (useCoordinatesIp === "true") ? longitudIP : (longitudeC === "0") ? longitudIP : longitudeC
+  property string latitude: (useAutomaticLocation === "true") ? latitudeIP : (latitudeC === "0") ? latitudeIP : latitudeC
+  property string longitud: (useAutomaticLocation === "true") ? longitudIP : (longitudeC === "0") ? longitudIP : longitudeC
 
   property var observerCoordenates: latitude + longitud
 
@@ -190,7 +190,7 @@ Item {
     if (x === 2) {
       getCityFuncion();
       getForecastWeather();
-      if (useCoordinatesIp === "true") {
+      if (useAutomaticLocation === "true") {
         getCoordinatesWithIp();
       } else {
         if (latitudeC === "0" || longitudC === "0") {
@@ -231,4 +231,3 @@ Item {
   onObserverCoordenatesChanged: updateWeather(2)
   onForecastWeatherChanged:  dataChanged()
 }
-
