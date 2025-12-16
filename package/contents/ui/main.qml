@@ -4,11 +4,9 @@ import QtQuick.Layouts
 import org.kde.plasma.plasmoid
 import org.kde.plasma.core as PlasmaCore
 
-
 PlasmoidItem {
     id: root
     width: iconAndTem.width
-
 
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground | PlasmaCore.Types.ConfigurableBackground
     preferredRepresentation: compactRepresentation
@@ -17,10 +15,6 @@ PlasmoidItem {
     property string temperatureUnit: plasmoid.configuration.temperatureUnit
     property string sizeFontConfg: plasmoid.configuration.sizeFontConfig
 
-
-  compactRepresentation: CompactRepresentation {
-
-  }
-          fullRepresentation: FullRepresentation {
-          }
-          }
+    compactRepresentation: CompactRepresentation {}
+    fullRepresentation: FullRepresentation {}
+}
