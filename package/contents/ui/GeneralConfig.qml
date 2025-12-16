@@ -32,31 +32,31 @@ Kirigami.FormLayout {
 
     PlasmaComponents3.CheckBox {
         id: textweather
-        Kirigami.FormData.label: i18n("General: ")
-        text: "Display weather conditions text on panel"
+        Kirigami.FormData.label: i18nc("@title:group","General:")
+        text: i18nc("@option:check","Display weather conditions text on panel")
     }
 
     PlasmaComponents3.RadioButton {
         id: useAutomaticLocation
-        Kirigami.FormData.label: i18n("Location: ")
-        text: i18n("Automatic")
+        Kirigami.FormData.label: i18nc("@title:group","Location: ")
+        text: i18nc("@option:radio set location automatically","Automatic")
         ButtonGroup.group: locationModeGroup
         ToolTip.visible: hovered
         ToolTip.delay: PlasmaCore.Units.shortDuration
-        ToolTip.text: i18n("Location service provided by ip-api.com")
+        ToolTip.text: i18nc("@info:tooltip","Location service provided by ip-api.com")
     }
 
     ColumnLayout {
         id: manualLocationConfiguration
         PlasmaComponents3.RadioButton {
             id: useManualLocation
-            text: i18n("Manual")
+            text: i18nc("@option:radio set location manually","Manual")
             ButtonGroup.group: locationModeGroup
         }
         RowLayout {
             ColumnLayout {
                 PlasmaComponents3.Label {
-                    text: i18n("Latitude")
+                    text: i18nc("@label:textbox geographic latitude","Latitude")
                 }
                 PlasmaComponents3.TextField {
                     id: latitude
@@ -65,7 +65,7 @@ Kirigami.FormLayout {
             }
             ColumnLayout {
                 PlasmaComponents3.Label {
-                    text: i18n("Longitude")
+                    text: i18nc("@label:textbox geographic longitude","Longitude")
                 }
                 PlasmaComponents3.TextField {
                     id: longitude
@@ -77,19 +77,19 @@ Kirigami.FormLayout {
 
     PlasmaComponents3.RadioButton {
         id: useSystemLocale
-        Kirigami.FormData.label: i18n("Temp units: ")
-        text: i18n("Use system's locale")
+        Kirigami.FormData.label: i18nc("@title:group","Temperature unit:")
+        text: i18nc("@option:radio","Use system default")
         ButtonGroup.group: temperatureUnitGroup
     }
 
     ColumnLayout {
         PlasmaComponents3.RadioButton {
             id: useManualTempUnit
-            text: i18n("Set temp unit manually")
+            text: i18nc("@option:radio","Set temperature unit manually")
             ButtonGroup.group: temperatureUnitGroup
         }
         PlasmaComponents3.Label {
-            text: i18n("Temperature unit:")
+            text: i18nc("@label:listbox temperature unit","Temperature unit:")
         }
         ComboBox {
             id: positionComboBox
@@ -98,11 +98,11 @@ Kirigami.FormLayout {
             enabled: useManualTempUnit.checked
             model: [
                 {
-                    text: i18n("Celsius (°C)"),
+                    text: i18nc("@item:inlistbox","Celsius (°C)"),
                     value: 0
                 },
                 {
-                    text: i18n("Fahrenheit (°F)"),
+                    text: i18nc("@item:inlistbox","Fahrenheit (°F)"),
                     value: 1
                 },
             ]
