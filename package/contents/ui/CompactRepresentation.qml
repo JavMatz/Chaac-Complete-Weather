@@ -9,7 +9,7 @@ import org.kde.plasma.plasma5support as Plasma5Support
 import "components" as Components
 
 Item {
-    id: iconAndTem
+    id: iconAndTemp
 
     Layout.minimumWidth: widthReal
     Layout.minimumHeight: heightReal

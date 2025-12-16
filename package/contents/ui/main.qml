@@ -6,7 +6,7 @@ import org.kde.plasma.core as PlasmaCore
 
 PlasmoidItem {
     id: root
-    width: iconAndTem.width
+    width: iconAndTemp.width
 
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground | PlasmaCore.Types.ConfigurableBackground
     preferredRepresentation: compactRepresentation
