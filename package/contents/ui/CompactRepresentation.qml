@@ -18,7 +18,7 @@ Item {
     property int heightH: root.height
     property var widthWidget: activeweathershottext ? temperature.implicitWidth : temperature.implicitWidth + wrapper_weathertext.width
     property var widthReal: isVertical ? root.width : horizontalView.implicitWidth
-    property var hVerti: wrapper_vertical.implicitHeight
+    property var hVerti: verticalView.implicitHeight
     property var heightReal: isVertical ? hVerti : root.height
 
     Components.WeatherData {
@@ -69,44 +69,27 @@ Item {
         }
     }
     ColumnLayout {
-        id: wrapper_vertical
-        width: root.width
-        height: icon_vertical.height +  textGrados_vertical.implicitHeight
-        spacing: 2
+        id: verticalView
         visible: isVertical
         Kirigami.Icon {
-            id: icon_vertical
-            width: root.width < 17 ? 16 : root.width < 24 ? 22 : 24
-            height: root.width < 17 ? 16 : root.width < 24 ? 22 : 24
+            id: verticalWeatherIcon
             source: weatherData.iconWeatherCurrent
-            anchors.left: parent.left
-            anchors.right: parent.right
-            roundToIconSize: false
         }
-        Row {
-            id: temOfCo_vertical
-            width: textGrados_vertical.implicitWidth + subtextGrados_vertical.implicitWidth
-            height: textGrados_vertical.implicitHeight
-            Layout.alignment: Qt.AlignHCenter
+        RowLayout {
+            id: verticalTemperature
 
             Label {
-                id: textGrados_vertical
-                height: parent.height
+                id: verticalTempValue
                 text: weatherData.temperaturaActual
                 color: PlasmaCore.Theme.textColor
-                horizontalAlignment: Text.AlignHCenter
             }
+
             Label {
-                id: subtextGrados_vertical
-                height: parent.height
+                id: verticalTempUnit
                 text: (root.temperatureUnit === "0") ? " °C" : " °F"
                 color: PlasmaCore.Theme.textColor
-                horizontalAlignment: Text.AlignHCenter
             }
         }
     }
 
 }
-
-
-
