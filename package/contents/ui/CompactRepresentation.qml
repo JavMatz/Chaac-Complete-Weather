@@ -19,8 +19,8 @@ Item {
     property bool textweather: Plasmoid.configuration.textweather
     property bool activeweathershottext: heightH > 36
     property int heightH: root.height
-    property var widthWidget: activeweathershottext ? temOfCo.implicitWidth : temOfCo.implicitWidth + wrapper_weathertext.width
-    property var widthReal: isVertical ? root.width : initial.implicitWidth
+    property var widthWidget: activeweathershottext ? temperature.implicitWidth : temperature.implicitWidth + wrapper_weathertext.width
+    property var widthReal: isVertical ? root.width : horizontalView.implicitWidth
     property var hVerti: wrapper_vertical.implicitHeight
     property var heightReal: isVertical ? hVerti : root.height
 
@@ -36,57 +36,38 @@ Item {
         onClicked: root.expanded = !root.expanded
     }
     RowLayout {
-        id: initial
-        width: icon.width + columntemandweathertext.width + icon.width * 0.3
-        height: parent.height
-        spacing: icon.width / 5
+        id: horizontalView
         visible: !isVertical
+
         Kirigami.Icon {
-            id: icon
-            width: root.height < 17 ? 16 : root.height < 24 ? 22 : 24
-            height: width
+            id: horizontalWeatherIcon
             source: weatherData.iconWeatherCurrent
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            roundToIconSize: false
+            Layout.alignment: Qt.AlignBaseline
         }
-        Column {
+
+        ColumnLayout {
             id: columntemandweathertext
-            width: widthWidget
-            height: temOfCo.implicitHeight
-            anchors.verticalCenter: parent.verticalCenter
-            Row {
-                id: temOfCo
-                width: textGrados.implicitWidth + subtextGrados.implicitWidth
-                height: textGrados.implicitHeight
-                anchors.verticalCenter: undefanchors
+
+            RowLayout {
+                id: temperature
 
                 Label {
-                    id: textGrados
-                    height: parent.height
+                    id: tempValue
                     text: weatherData.temperaturaActual
                     color: PlasmaCore.Theme.textColor
-                    verticalAlignment: Text.AlignVCenter
                 }
                 Label {
-                    id: subtextGrados
-                    height: parent.height
+                    id: tempUnit
                     text: (root.temperatureUnit === "0") ? " °C" : " °F"
                     color: PlasmaCore.Theme.textColor
-                    verticalAlignment: Text.AlignVCenter
                 }
             }
-            Item {
-                id: wrapper_weathertext
-                height: shortweathertext.implicitHeight
-                width: shortweathertext.implicitWidth
+
+            Label {
+                id: shortWeatherStatus
+                text: weatherData.weatherShottext
+                font.bold: true
                 visible: activeweathershottext & textweather
-                Label {
-                    id: shortweathertext
-                    text: weatherData.weatherShottext
-                    font.bold: true
-                    verticalAlignment: Text.AlignVCenter
-                }
             }
         }
     }
