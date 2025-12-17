@@ -9,10 +9,7 @@ import org.kde.plasma.plasma5support as Plasma5Support
 import "components" as Components
 
 Item {
-    id: iconAndTemp
-
-    Layout.minimumWidth: widthReal
-    Layout.minimumHeight: heightReal
+    id: compactRep
 
     readonly property bool isVertical: Plasmoid.formFactor === PlasmaCore.Types.Vertical
     property string undefanchors: activeweathershottext ? undefined : parent.verticalCenter
